@@ -1,0 +1,447 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Pizza Bona — système de design
+   Ambiance : trattoria traditionnelle (bois brûlé, tomate, basilic, or)
+   revisitée façon affiche moderne (typo massive, couleurs franches, mouvement).
+   ========================================================================== */
+
+@theme {
+  /* Rouge tomate / San Marzano */
+  --color-tomato-50: #fdf1ee;
+  --color-tomato-100: #f9ded6;
+  --color-tomato-200: #f2bfb1;
+  --color-tomato-300: #e58a75;
+  --color-tomato-400: #d4553f;
+  --color-tomato-500: #c1272d;
+  --color-tomato-600: #a01c22;
+  --color-tomato-700: #7a1419;
+
+  /* Basilic */
+  --color-basil-300: #a8c07d;
+  --color-basil-400: #85a352;
+  --color-basil-500: #628137;
+  --color-basil-600: #4a6429;
+  --color-basil-700: #37491f;
+
+  /* Or / croûte dorée */
+  --color-gold-300: #f6d68a;
+  --color-gold-400: #eab543;
+  --color-gold-500: #d29320;
+
+  /* Crème / farine */
+  --color-cream: #fdf6ea;
+  --color-cream-2: #f6ead6;
+  --color-cream-3: #ecdcc2;
+
+  /* Bois brûlé / four éteint */
+  --color-ink: #170f0d;
+  --color-ink-2: #241816;
+  --color-ink-3: #3a2926;
+  --color-ink-soft: #6b5551;
+
+  --font-display: "Anton", "Impact", sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+
+  --shadow-warm: 0 24px 60px -24px rgba(23, 15, 13, 0.45);
+  --shadow-lift: 0 30px 70px -30px rgba(160, 28, 34, 0.55);
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+::selection {
+  background: var(--color-tomato-500);
+  color: var(--color-cream);
+}
+
+/* Barre de défilement discrète mais raccord avec le thème */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-tomato-500);
+  border-radius: 999px;
+  border: 2px solid var(--color-cream-2);
+}
+
+/* --------------------------------------------------------------------------
+   Motifs & textures
+   -------------------------------------------------------------------------- */
+
+/* Nappe à carreaux de trattoria, très atténuée */
+.bg-nappe {
+  background-image:
+    linear-gradient(45deg, rgba(193, 39, 45, 0.06) 25%, transparent 25%, transparent 75%, rgba(193, 39, 45, 0.06) 75%),
+    linear-gradient(45deg, rgba(193, 39, 45, 0.06) 25%, transparent 25%, transparent 75%, rgba(193, 39, 45, 0.06) 75%);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Grain de farine sur les fonds sombres */
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(253, 246, 234, 0.28) 0.5px, transparent 0.5px);
+  background-size: 4px 4px;
+}
+
+/* Lueur de four sous le héros */
+.bg-braise {
+  background:
+    radial-gradient(90% 70% at 50% 105%, rgba(193, 39, 45, 0.45) 0%, transparent 60%),
+    radial-gradient(60% 50% at 85% 0%, rgba(234, 181, 67, 0.18) 0%, transparent 65%),
+    linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-2) 55%, var(--color-ink) 100%);
+}
+
+/* Filet tricolore italien */
+.filet-tricolore {
+  background: linear-gradient(
+    90deg,
+    var(--color-basil-500) 0 33.33%,
+    var(--color-cream) 33.33% 66.66%,
+    var(--color-tomato-500) 66.66% 100%
+  );
+}
+
+/* Texte contour (titres « affiche ») */
+.texte-contour {
+  color: transparent;
+  -webkit-text-stroke: 1.5px currentColor;
+  paint-order: stroke fill;
+}
+
+/* --------------------------------------------------------------------------
+   Animations
+   -------------------------------------------------------------------------- */
+
+@keyframes bona-monter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bona-glisser-gauche {
+  from {
+    opacity: 0;
+    transform: translate3d(-46px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bona-glisser-droite {
+  from {
+    opacity: 0;
+    transform: translate3d(46px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bona-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bona-mot {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0) rotate(4deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bona-defile {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes bona-defile-inverse {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bona-tourner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bona-flotter {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes bona-vapeur {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  30% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-90px) scaleX(1.9);
+  }
+}
+
+@keyframes bona-pulsation {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(98, 129, 55, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(98, 129, 55, 0);
+  }
+}
+
+@keyframes bona-rebond {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+@keyframes bona-brillance {
+  from {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  to {
+    transform: translateX(320%) skewX(-20deg);
+  }
+}
+
+@keyframes bona-scintille {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+/* Apparitions au défilement — pilotées par le composant <Reveal /> */
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.reveal.est-visible {
+  animation: bona-monter 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal[data-variante="gauche"].est-visible {
+  animation-name: bona-glisser-gauche;
+}
+.reveal[data-variante="droite"].est-visible {
+  animation-name: bona-glisser-droite;
+}
+.reveal[data-variante="zoom"].est-visible {
+  animation-name: bona-zoom;
+}
+
+.anim-flotter {
+  animation: bona-flotter 6s ease-in-out infinite;
+}
+
+.anim-tourner-lent {
+  animation: bona-tourner 44s linear infinite;
+}
+
+.anim-rebond {
+  animation: bona-rebond 1.8s ease-in-out infinite;
+}
+
+.anim-pulsation {
+  animation: bona-pulsation 2.4s ease-out infinite;
+}
+
+.anim-scintille {
+  animation: bona-scintille 3.5s ease-in-out infinite;
+}
+
+/* Bandeau défilant infini : le contenu est dupliqué, on translate de -50% */
+.defile-piste {
+  display: flex;
+  width: max-content;
+  animation: bona-defile 38s linear infinite;
+}
+
+.defile-piste[data-sens="inverse"] {
+  animation-name: bona-defile-inverse;
+}
+
+.defile:hover .defile-piste {
+  animation-play-state: paused;
+}
+
+/* Fondu sur les bords : les éléments entrent et sortent en douceur au lieu
+   d'être coupés net au bord de l'écran. */
+.fondu-bords {
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+
+/* Balayage lumineux sur les boutons primaires */
+.brillance {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.brillance::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  left: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(253, 246, 234, 0.4), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.brillance:hover::after {
+  animation: bona-brillance 0.9s ease-out;
+}
+
+/* Soulignement animé des liens de navigation */
+.lien-nav {
+  position: relative;
+}
+
+.lien-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lien-nav:hover::after,
+.lien-nav[data-actif="true"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Carte qui se soulève au survol */
+.carte-relief {
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s ease;
+}
+
+.carte-relief:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* --------------------------------------------------------------------------
+   Accessibilité : « Réduire les animations »
+   Certaines personnes (troubles vestibulaires, migraines, épilepsie) activent
+   cette option sur leur appareil. On coupe tout mouvement non essentiel.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+  }
+}

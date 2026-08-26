@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR code — Carte de fidélité Pizza Bona</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      .carte img.qr {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 12px;
+        border: 1px solid var(--cream-dark);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carte">
+      <img class="logo" src="/assets/apple/logo@2x.png" alt="Pizza Bona" />
+      <h1>Scannez pour votre carte de fidélité</h1>
+      <p class="sous-titre">
+        À imprimer et afficher en caisse, sur les flyers ou les boîtes à pizza.
+      </p>
+      <img id="qr" class="qr" alt="QR code carte de fidélité" />
+    </div>
+
+    <script>
+      fetch("/api/qrcode")
+        .then((r) => r.json())
+        .then((donnees) => {
+          document.getElementById("qr").src = donnees.qrCodeDataUrl;
+        });
+    </script>
+  </body>
+</html>

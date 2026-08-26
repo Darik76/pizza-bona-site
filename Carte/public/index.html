@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carte de fidélité — Pizza Bona</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="carte">
+      <img class="logo" src="/assets/apple/logo@2x.png" alt="Pizza Bona" />
+      <h1>Ma carte de fidélité</h1>
+      <p class="sous-titre">
+        1 tampon tous les 5€ d'achat. 10 tampons = 5€ de réduction !
+      </p>
+
+      <form id="formulaire">
+        <label for="nom">Ton nom</label>
+        <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required />
+
+        <label for="telephone">Ton téléphone (optionnel)</label>
+        <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" />
+
+        <button type="submit" class="bouton-principal" id="bouton-valider">
+          Obtenir ma carte
+        </button>
+      </form>
+
+      <div id="zone-erreur" class="erreur masque"></div>
+
+      <div id="zone-resultat" class="masque">
+        <div class="progression" id="zone-progression"></div>
+
+        <a href="#" id="lien-google" class="bouton bouton-google" target="_blank" rel="noopener">
+          <span>➕</span> Ajouter à Google Wallet
+        </a>
+        <a href="#" id="lien-apple" class="bouton bouton-apple">
+          <span>➕</span> Ajouter à Apple Wallet
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const formulaire = document.getElementById("formulaire");
+      const boutonValider = document.getElementById("bouton-valider");
+      const zoneErreur = document.getElementById("zone-erreur");
+      const zoneResultat = document.getElementById("zone-resultat");
+      const zoneProgression = document.getElementById("zone-progression");
+      const lienGoogle = document.getElementById("lien-google");
+      const lienApple = document.getElementById("lien-apple");
+
+      formulaire.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        zoneErreur.classList.add("masque");
+        boutonValider.disabled = true;
+        boutonValider.textContent = "Création en cours...";
+
+        const nom = document.getElementById("nom").value.trim();
+        const telephone = document.getElementById("telephone").value.trim();
+
+        try {
+          const reponse = await fetch("/wallet/google/carte", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nom, telephone }),
+          });
+          const donnees = await reponse.json();
+
+          if (!reponse.ok) {
+            throw new Error(donnees.erreur || "Une erreur est survenue.");
+          }
+
+          zoneProgression.textContent = `${donnees.tampons} tampon(s) sur 10 pour l'instant.`;
+          lienGoogle.href = donnees.lienAjout;
+          lienApple.href = `/wallet/apple/carte/${donnees.clientId}`;
+
+          formulaire.classList.add("masque");
+          zoneResultat.classList.remove("masque");
+        } catch (erreur) {
+          zoneErreur.textContent = erreur.message;
+          zoneErreur.classList.remove("masque");
+        } finally {
+          boutonValider.disabled = false;
+          boutonValider.textContent = "Obtenir ma carte";
+        }
+      });
+    </script>
+  </body>
+</html>

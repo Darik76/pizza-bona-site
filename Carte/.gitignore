@@ -1,0 +1,21 @@
+# Dépendances
+node_modules/
+
+# Variables d'environnement (contient des clés secrètes, ne jamais partager)
+.env
+
+# Base de données locale (contient les données clients)
+backend/data/*.sqlite
+backend/data/*.sqlite-journal
+
+# Certificats Apple Wallet (secrets, ne jamais committer)
+wallet-apple/certs/*.pem
+wallet-apple/certs/*.p12
+wallet-apple/certs/*.cer
+
+# Clé de service Google Wallet (secret, ne jamais committer)
+wallet-google/service-account.json
+
+# Fichiers générés
+*.pkpass
+Carte-fidelite-QR.png
