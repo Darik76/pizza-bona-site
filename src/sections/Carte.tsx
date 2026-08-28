@@ -105,7 +105,7 @@ export function Carte() {
 
         {/* ---------- Filtres ---------- */}
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <span className="text-xs uppercase tracking-wider text-cream/40">Filtrer :</span>
+          <span className="text-xs uppercase tracking-wider text-cream/60">Filtrer :</span>
           {FILTRES.map(({ id, libelle, Icone }) => {
             const actif = filtres.includes(id);
             return (
@@ -186,12 +186,12 @@ export function Carte() {
               href={siteConfig.phone.href}
               variante="primaire"
               taille="grand"
-              aria-label={`Appeler ${siteConfig.name} au ${siteConfig.phone.display}`}
+              aria-label={`Commander par téléphone au ${siteConfig.phone.display}`}
             >
               <IconeTelephone className="h-5 w-5" />
               Commander par téléphone
             </Button>
-            <p className="mt-3 text-xs uppercase tracking-wider text-cream/40">
+            <p className="mt-3 text-xs uppercase tracking-wider text-cream/60">
               Les prix sont en euros, taxes comprises
             </p>
           </div>

@@ -26,8 +26,8 @@ const IMAGES = [
   {
     source: "logo.webp",
     sortie: "logo.webp",
-    largeur: 420,
-    qualite: 90,
+    largeur: 320,
+    qualite: 82,
     rogner: true, // enlève la marge transparente autour du logo
     note: "en-tête (44 px de haut) et pied de page",
   },
@@ -35,7 +35,7 @@ const IMAGES = [
     source: "pizza2.webp",
     sortie: "pizza.webp",
     largeur: 550,
-    qualite: 70,
+    qualite: 60,
     note: "pizza qui tourne dans le héros",
   },
   {

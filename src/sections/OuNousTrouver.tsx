@@ -66,7 +66,7 @@ export function OuNousTrouver() {
                       )}
                       {h.day}
                     </span>
-                    <span className={cn(h.hours === "Fermé" && "text-ink-soft/60")}>
+                    <span className={cn(h.hours === "Fermé" && "text-ink-soft")}>
                       {h.hours}
                     </span>
                   </li>

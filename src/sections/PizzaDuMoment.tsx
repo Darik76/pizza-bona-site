@@ -102,7 +102,7 @@ export function PizzaDuMoment() {
               variante="sombre"
               taille="grand"
               className="mt-8"
-              aria-label={`Appeler ${siteConfig.name} au ${siteConfig.phone.display}`}
+              aria-label={`Demandez-la au téléphone : ${siteConfig.phone.display}`}
             >
               <IconeTelephone className="h-5 w-5" />
               Demandez-la au téléphone

@@ -57,7 +57,7 @@ export function Appel() {
 
         <Reveal delai={300}>
           <div className="mt-12 flex flex-col items-center gap-6">
-            <p className="text-sm uppercase tracking-wider text-cream/50">
+            <p className="text-sm uppercase tracking-wider text-cream/65">
               {siteConfig.address.full}
             </p>
 

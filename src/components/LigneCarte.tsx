@@ -44,7 +44,7 @@ export function LigneCarte({ plat, delai }: { plat: MenuItem; delai: number }) {
             {formaterPrix(plat.price)}
           </span>
           {plat.secondaryPrice !== undefined && (
-            <span className="ml-2 whitespace-nowrap text-xs text-cream/50">
+            <span className="ml-2 whitespace-nowrap text-xs text-cream/65">
               {plat.secondaryLabel} {formaterPrix(plat.secondaryPrice)}
             </span>
           )}
@@ -52,7 +52,7 @@ export function LigneCarte({ plat, delai }: { plat: MenuItem; delai: number }) {
       </div>
 
       {plat.ingredients && (
-        <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-cream/55">
+        <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-cream/65">
           {plat.ingredients}
         </p>
       )}

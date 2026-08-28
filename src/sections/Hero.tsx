@@ -134,7 +134,7 @@ export function Hero() {
                 href={siteConfig.phone.href}
                 variante="primaire"
                 taille="grand"
-                aria-label={`Appeler ${siteConfig.name} au ${siteConfig.phone.display}`}
+                aria-label={`Commander : ${siteConfig.phone.display} — appeler ${siteConfig.name}`}
               >
                 <IconeTelephone className="h-5 w-5" />
                 Commander : {siteConfig.phone.display}
@@ -149,13 +149,13 @@ export function Hero() {
               style={{ animation: "bona-monter 0.9s ease-out 1200ms both" }}
             >
               <div>
-                <dt className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-cream/50">
+                <dt className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-cream/65">
                   <IconeHorloge className="h-3.5 w-3.5" /> Midi & soir
                 </dt>
                 <dd className="mt-1 font-display text-lg text-cream">Du mardi au dimanche</dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-cream/50">Adresse</dt>
+                <dt className="text-xs uppercase tracking-wider text-cream/65">Adresse</dt>
                 <dd className="mt-1 font-display text-lg text-cream">
                   <a
                     href={googleMapsDirectionsUrl()}
@@ -168,7 +168,7 @@ export function Hero() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wider text-cream/50">Service</dt>
+                <dt className="text-xs uppercase tracking-wider text-cream/65">Service</dt>
                 <dd className="mt-1 font-display text-lg text-cream">
                   Sur place · Emporter
                 </dd>

@@ -34,7 +34,7 @@ export function MobileCallBar() {
           <p
             className={cn(
               "truncate text-xs",
-              ouvert ? "text-basil-300" : "text-cream/50"
+              ouvert ? "text-basil-300" : "text-cream/65"
             )}
           >
             {message}
@@ -43,7 +43,7 @@ export function MobileCallBar() {
 
         <a
           href={siteConfig.phone.href}
-          aria-label={`Appeler ${siteConfig.name} au ${siteConfig.phone.display}`}
+          aria-label={`Commander par téléphone au ${siteConfig.phone.display}`}
           className="brillance flex shrink-0 items-center gap-2 rounded-full bg-tomato-500 px-5 py-3 font-display text-sm uppercase tracking-wider text-cream"
         >
           <IconeTelephone className="h-4 w-4" />

@@ -49,6 +49,11 @@ function Compteur({ chiffre }: { chiffre: Chiffre }) {
 export function Atouts() {
   return (
     <Section className="bg-cream-2/60" paddingClassName="py-16 sm:py-20">
+      {/* Cette section n'a pas de titre visible, mais la hiérarchie des titres
+          doit rester continue (h1 → h2 → h3) pour les lecteurs d'écran et pour
+          Google : on en met un, réservé aux technologies d'assistance. */}
+      <h2 className="sr-only">Notre savoir-faire en quelques chiffres</h2>
+
       <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
         {siteConfig.chiffres.map((chiffre, index) => (
           <Reveal key={chiffre.label} delai={index * 90} variante="zoom">

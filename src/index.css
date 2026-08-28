@@ -82,6 +82,15 @@ h3 {
   color: var(--color-cream);
 }
 
+/* Contour de focus clavier. Le contour par défaut du navigateur est noir : il
+   devient invisible sur les sections sombres. Un halo doré ressort sur les deux
+   fonds. `:focus-visible` ne se déclenche qu'au clavier, jamais à la souris. */
+:focus-visible {
+  outline: 3px solid var(--color-gold-400);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 /* Barre de défilement discrète mais raccord avec le thème */
 ::-webkit-scrollbar {
   width: 10px;

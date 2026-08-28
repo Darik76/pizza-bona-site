@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="relative bg-ink pb-24 text-cream/70 lg:pb-0">
       <div className="filet-tricolore h-1.5" aria-hidden="true" />
 
-      <div className="border-b border-cream/10 py-4 text-cream/25">
+      <div className="border-b border-cream/10 py-4 text-cream/45">
         <Bandeau mots={siteConfig.bandeau} sens="inverse" separateur="·" />
       </div>
 
@@ -21,8 +21,8 @@ export function Footer() {
             <img
               src={image("logo.webp")}
               alt={siteConfig.name}
-              width={420}
-              height={171}
+              width={320}
+              height={130}
               loading="lazy"
               className="h-9 w-auto"
             />
@@ -113,7 +113,7 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-cream/10 py-5 text-center text-xs text-cream/45">
+      <div className="border-t border-cream/10 py-5 text-center text-xs text-cream/60">
         © {annee} {siteConfig.name} — Tous droits réservés
       </div>
     </footer>

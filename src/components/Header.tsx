@@ -63,8 +63,8 @@ export function Header() {
             <img
               src={image("logo.webp")}
               alt={siteConfig.name}
-              width={420}
-              height={171}
+              width={320}
+              height={130}
               className={cn(
                 "w-auto transition-all duration-500",
                 defile ? "h-8 sm:h-9" : "h-9 sm:h-11"

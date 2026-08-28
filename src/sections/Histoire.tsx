@@ -104,10 +104,12 @@ export function Histoire() {
             </div>
           </Reveal>
 
+          {/* Le <Reveal> est à l'intérieur du <li> : un <ol> ne doit contenir
+              que des <li> en enfants directs. */}
           <ol className="mt-10 space-y-5">
             {ETAPES.map((etape, index) => (
-              <Reveal key={etape.numero} delai={220 + index * 110} variante="droite">
-                <li className="group flex gap-5">
+              <li key={etape.numero}>
+                <Reveal delai={220 + index * 110} variante="droite" className="group flex gap-5">
                   <span className="font-display text-3xl text-tomato-500/25 transition-colors duration-300 group-hover:text-tomato-500">
                     {etape.numero}
                   </span>
@@ -119,8 +121,8 @@ export function Histoire() {
                       {etape.texte}
                     </span>
                   </span>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>

@@ -9,9 +9,15 @@ import { cn } from "../lib/utils";
 
 const TOTAL = googleReviews.length;
 
+// role="img" est indispensable : sans lui, aria-label est ignoré sur un <span>
+// (et signalé comme une erreur d'accessibilité).
 function Etoiles({ note, className }: { note: number; className?: string }) {
   return (
-    <span className={cn("inline-flex gap-1", className)} aria-label={`${note} sur 5`}>
+    <span
+      role="img"
+      aria-label={`${note} sur 5`}
+      className={cn("inline-flex gap-1", className)}
+    >
       {[0, 1, 2, 3, 4].map((i) => (
         <IconeEtoile
           key={i}

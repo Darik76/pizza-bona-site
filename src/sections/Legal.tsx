@@ -90,7 +90,8 @@ export function Legal() {
 
               <Bloc titre="Hébergement">
                 <p>
-                  Ce site est hébergé par {legal.hebergeur.nom} —{" "}
+                  Ce site est hébergé par {legal.hebergeur.nom},{" "}
+                  {legal.hebergeur.adresse} —{" "}
                   <a
                     href={legal.hebergeur.site}
                     target="_blank"

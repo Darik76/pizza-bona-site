@@ -116,9 +116,12 @@ export const siteConfig = {
   legal: {
     siret: "", // Ex. "123 456 789 00012" — visible sur ton extrait Kbis / avis Sirene
     directeurPublication: "", // Ex. "Prénom Nom" — en général le gérant
+    // ⚠️ À mettre à jour en cas de changement d'hébergeur : la loi (LCEN)
+    // impose d'indiquer le nom et l'adresse de l'hébergeur réel du site.
     hebergeur: {
-      nom: "AwardSpace",
-      site: "https://www.awardspace.com",
+      nom: "GitHub, Inc. (GitHub Pages)",
+      adresse: "88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis",
+      site: "https://github.com",
     },
   },
 };
