@@ -20,7 +20,10 @@ export function MobileCallBar() {
   }, []);
 
   return (
-    <div
+    // <aside> plutôt que <div> : tout le contenu de la page doit appartenir à
+    // un repère (landmark) pour être atteignable au lecteur d'écran.
+    <aside
+      aria-label="Commander par téléphone"
       className={cn(
         "fixed inset-x-0 bottom-0 z-40 border-t border-cream/10 bg-ink/95 px-4 py-3 backdrop-blur transition-transform duration-500 lg:hidden",
         visible ? "translate-y-0" : "translate-y-full"
@@ -50,6 +53,6 @@ export function MobileCallBar() {
           Commander
         </a>
       </div>
-    </div>
+    </aside>
   );
 }
