@@ -2,13 +2,14 @@ import { Container } from "../components/Container";
 import { Reveal } from "../components/Reveal";
 import { IconeTelephone, IconeFacebook, IconeInstagram } from "../components/Icones";
 import { siteConfig } from "../config/site";
+import { image } from "../lib/assets";
 
 export function Appel() {
   return (
     <section id="contact" className="relative scroll-mt-24 overflow-hidden">
       {/* Photo d'ambiance en fond, assombrie pour garder le texte lisible */}
       <img
-        src="/images/accueil.webp"
+        src={image("accueil.webp")}
         alt=""
         aria-hidden="true"
         loading="lazy"

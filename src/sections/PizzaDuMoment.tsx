@@ -5,6 +5,7 @@ import { IconeTelephone } from "../components/Icones";
 import { pizzaOfMonth } from "../data/menu";
 import { siteConfig } from "../config/site";
 import { formaterPrix } from "../lib/utils";
+import { image } from "../lib/assets";
 
 /** Macaron circulaire dont le texte tourne autour de l'image. */
 function Macaron() {
@@ -55,7 +56,7 @@ export function PizzaDuMoment() {
               aria-hidden="true"
             />
             <img
-              src="/images/pizza-du-mois.webp"
+              src={image("pizza-du-mois.webp")}
               alt="La pizza du moment de Pizza Bona"
               loading="lazy"
               decoding="async"

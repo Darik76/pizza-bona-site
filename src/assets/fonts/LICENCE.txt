@@ -1,0 +1,9 @@
+Polices utilisées par ce site :
+
+- Anton — Vernon Adams, Cyreal — SIL Open Font License 1.1
+- Fraunces — Undercase Type — SIL Open Font License 1.1
+- Outfit — Smartsheet, On Brand Investments — SIL Open Font License 1.1
+
+La licence OFL autorise l'utilisation, la modification et la redistribution,
+y compris l'hébergement des fichiers avec le site.
+Texte complet : https://openfontlicense.org

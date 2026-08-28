@@ -46,27 +46,10 @@
     />
     <meta name="twitter:image" content="http://4754433.atwebpages.com/og-image.webp" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Chargement non bloquant : évite que la feuille de style des polices retarde
-         le premier rendu (render-blocking). Le <noscript> couvre le cas sans JS. -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600;0,9..144,600&family=Outfit:wght@300;400;500;600;700&display=swap"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600;0,9..144,600&family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600;0,9..144,600&family=Outfit:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
+    <!-- Les polices (Anton, Fraunces, Outfit) sont servies avec le site, pas
+         depuis Google Fonts : une connexion externe en moins, et aucune adresse
+         IP de visiteur transmise à un tiers. Elles sont déclarées dans
+         src/polices.css et régénérées par scripts/telecharger-polices.mjs. -->
 
     <!-- Schema.org LocalBusiness/Restaurant — données synchronisées manuellement avec
          src/config/site.ts ; mets à jour les deux si l'adresse, le téléphone ou les

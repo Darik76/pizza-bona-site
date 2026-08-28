@@ -2,6 +2,7 @@ import { Container } from "./Container";
 import { Bandeau } from "./Bandeau";
 import { IconeFacebook, IconeInstagram, IconeFleche } from "./Icones";
 import { siteConfig } from "../config/site";
+import { image } from "../lib/assets";
 
 export function Footer() {
   const annee = new Date().getFullYear();
@@ -18,10 +19,10 @@ export function Footer() {
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="inline-block rounded-2xl bg-cream px-4 py-3">
             <img
-              src="/images/logo.webp"
+              src={image("logo.webp")}
               alt={siteConfig.name}
-              width={700}
-              height={318}
+              width={420}
+              height={171}
               loading="lazy"
               className="h-9 w-auto"
             />

@@ -4,11 +4,12 @@ import { Reveal } from "../components/Reveal";
 import { TitreSection } from "../components/Section";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 import { cn } from "../lib/utils";
+import { image } from "../lib/assets";
 
 const TOTAL_PHOTOS = 20;
 const PHOTOS = Array.from(
   { length: TOTAL_PHOTOS },
-  (_, i) => `/images/pizzas/pizza-${String(i + 1).padStart(2, "0")}.webp`
+  (_, i) => image(`pizzas/pizza-${String(i + 1).padStart(2, "0")}.webp`)
 );
 
 // Deux rangées qui défilent en sens opposés : la première moitié des photos

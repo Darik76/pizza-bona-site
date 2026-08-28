@@ -1,6 +1,7 @@
 import { Reveal } from "../components/Reveal";
 import { Section } from "../components/Section";
 import { siteConfig } from "../config/site";
+import { image } from "../lib/assets";
 
 const ETAPES = [
   {
@@ -28,7 +29,7 @@ export function Histoire() {
         <div className="relative">
           <Reveal variante="gauche">
             <img
-              src="/images/facade.webp"
+              src={image("facade.webp")}
               alt={`Façade de ${siteConfig.name} à ${siteConfig.city}`}
               loading="lazy"
               decoding="async"
@@ -45,7 +46,7 @@ export function Histoire() {
             className="absolute -bottom-10 -right-2 hidden sm:block lg:-right-8"
           >
             <img
-              src="/images/four.webp"
+              src={image("four.webp")}
               alt="Le four de la pizzeria"
               loading="lazy"
               decoding="async"
@@ -59,7 +60,7 @@ export function Histoire() {
             className="absolute -left-8 -top-10 hidden lg:block"
           >
             <img
-              src="/images/salle.webp"
+              src={image("salle.webp")}
               alt="La salle de la pizzeria"
               loading="lazy"
               decoding="async"

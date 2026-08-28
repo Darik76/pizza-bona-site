@@ -9,6 +9,7 @@ import { useEtatOuverture } from "../hooks/useEtatOuverture";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 import { googleMapsDirectionsUrl } from "../lib/maps";
 import { cn, formaterPrix } from "../lib/utils";
+import { image } from "../lib/assets";
 
 export function Hero() {
   const { ouvert, message } = useEtatOuverture();
@@ -213,7 +214,7 @@ export function Hero() {
                 ))}
 
               <img
-                src="/images/pizza.webp"
+                src={image("pizza.webp")}
                 alt="Pizza artisanale Pizza Bona sortie du four, roquette et jambon cru"
                 width={550}
                 height={440}

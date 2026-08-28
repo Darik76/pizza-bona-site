@@ -5,6 +5,7 @@ import { useSectionActive } from "../hooks/useSectionActive";
 import { useEtatOuverture } from "../hooks/useEtatOuverture";
 import { IconeTelephone, IconeFacebook, IconeInstagram } from "./Icones";
 import { cn } from "../lib/utils";
+import { image } from "../lib/assets";
 
 const ANCRES = siteConfig.nav.map((item) => item.href);
 
@@ -60,10 +61,10 @@ export function Header() {
             className="shrink-0 transition-transform duration-300 hover:scale-105"
           >
             <img
-              src="/images/logo.webp"
+              src={image("logo.webp")}
               alt={siteConfig.name}
-              width={700}
-              height={318}
+              width={420}
+              height={171}
               className={cn(
                 "w-auto transition-all duration-500",
                 defile ? "h-8 sm:h-9" : "h-9 sm:h-11"
