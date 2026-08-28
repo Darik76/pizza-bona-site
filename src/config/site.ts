@@ -17,10 +17,12 @@ export const siteConfig = {
   city: "Lillebonne",
 
   // ⚠️ ADRESSE RÉELLE DU SITE EN LIGNE — source unique de vérité.
+  // Aujourd'hui le site est publié sur GitHub Pages, dans un sous-dossier.
   // Le jour où tu achètes un vrai nom de domaine (ex. https://www.pizza-bona.fr),
-  // tu ne changes QUE cette ligne ici + la même valeur dans index.html
-  // (balise canonical / og:url) et dans public/robots.txt + public/sitemap.xml.
-  url: "http://4754433.atwebpages.com",
+  // change cette ligne + la même valeur dans index.html (canonical / og:url),
+  // dans public/robots.txt et public/sitemap.xml, et remets `base: "/"` dans
+  // vite.config.ts puisqu'il n'y aura plus de sous-dossier.
+  url: "https://darik76.github.io/pizza-bona-site",
 
   // 3 variantes d'accroche pour le Hero — la première est utilisée par défaut,
   // change l'index dans sections/Hero.tsx si tu préfères une autre.

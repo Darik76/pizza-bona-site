@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://4754433.atwebpages.com/sitemap.xml
+Sitemap: https://darik76.github.io/pizza-bona-site/sitemap.xml
