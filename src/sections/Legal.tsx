@@ -124,10 +124,13 @@ export function Legal() {
 
               <Bloc titre="Carte Google Maps">
                 <p>
-                  La carte affichée dans la section « Où nous trouver » est fournie par
-                  Google Maps. En la chargeant, Google peut déposer des cookies et
-                  recueillir des informations techniques (dont votre adresse IP), selon
-                  ses propres conditions. Nous n'avons accès à aucune de ces données.
+                  La carte de la section « Où nous trouver » est fournie par Google
+                  Maps. Elle ne se charge <strong>que si vous cliquez</strong> sur
+                  « Afficher la carte » : tant que vous ne le faites pas, aucune donnée
+                  n'est transmise à Google. Si vous l'affichez, Google peut déposer des
+                  cookies et recueillir des informations techniques (dont votre adresse
+                  IP), selon ses propres conditions. Nous n'avons accès à aucune de ces
+                  données.
                 </p>
               </Bloc>
 

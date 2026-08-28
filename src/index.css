@@ -432,6 +432,42 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
+   Démarrage différé des animations en boucle
+   Tant que la page se charge, les halos, la pizza qui tourne et les bandeaux
+   défilants empêchent l'écran de se stabiliser : Google mesure ça (Speed Index)
+   et le compte comme un affichage lent. On les met en pause jusqu'à la fin du
+   chargement — l'attribut data-anime est posé par src/main.tsx.
+
+   ⚠️ Ce bloc doit rester APRÈS les déclarations `.anim-*`, parce que la
+   propriété raccourcie `animation:` réinitialise animation-play-state.
+   -------------------------------------------------------------------------- */
+
+:is(
+  .anim-flotter,
+  .anim-tourner-lent,
+  .anim-rebond,
+  .anim-pulsation,
+  .anim-scintille,
+  .anim-vapeur,
+  .defile-piste
+) {
+  animation-play-state: paused;
+}
+
+html[data-anime="oui"]
+  :is(
+    .anim-flotter,
+    .anim-tourner-lent,
+    .anim-rebond,
+    .anim-pulsation,
+    .anim-scintille,
+    .anim-vapeur,
+    .defile-piste
+  ) {
+  animation-play-state: running;
+}
+
+/* --------------------------------------------------------------------------
    Accessibilité : « Réduire les animations »
    Certaines personnes (troubles vestibulaires, migraines, épilepsie) activent
    cette option sur leur appareil. On coupe tout mouvement non essentiel.

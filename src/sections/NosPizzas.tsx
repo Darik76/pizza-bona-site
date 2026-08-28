@@ -52,7 +52,10 @@ function Rangee({
         data-sens={sens}
         style={{
           animationDuration: `${duree}s`,
-          animationPlayState: enPause ? "paused" : "running",
+          // Volontairement `undefined` et non "running" quand ce n'est pas en
+          // pause : le style en ligne l'emporterait sur le démarrage différé
+          // géré en CSS (voir index.css).
+          animationPlayState: enPause ? "paused" : undefined,
         }}
       >
         {[...photos, ...photos].map((src, i) => (

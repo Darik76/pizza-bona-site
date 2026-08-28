@@ -4,7 +4,8 @@ import { Section, TitreSection } from "../components/Section";
 import { IconeItineraire, IconeHorloge, IconeScooter } from "../components/Icones";
 import { siteConfig } from "../config/site";
 import { useEtatOuverture } from "../hooks/useEtatOuverture";
-import { googleMapsDirectionsUrl, googleMapsEmbedUrl, wazeUrl } from "../lib/maps";
+import { CarteMaps } from "../components/CarteMaps";
+import { googleMapsDirectionsUrl, wazeUrl } from "../lib/maps";
 import { cn } from "../lib/utils";
 
 export function OuNousTrouver() {
@@ -103,15 +104,7 @@ export function OuNousTrouver() {
         {/* ---------- Carte + livraison ---------- */}
         <div className="flex flex-col gap-6">
           <Reveal variante="droite">
-            <div className="group overflow-hidden rounded-3xl border border-ink/5 shadow-warm">
-              <iframe
-                title={`Carte : ${siteConfig.name} à ${siteConfig.city}`}
-                src={googleMapsEmbedUrl()}
-                className="h-[320px] w-full transition-transform duration-700 group-hover:scale-[1.02] lg:h-[380px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+            <CarteMaps />
           </Reveal>
 
           <Reveal variante="droite" delai={110}>

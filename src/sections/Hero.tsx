@@ -103,24 +103,24 @@ export function Hero() {
             </div>
 
             <h1 className="mt-7 text-[clamp(2.9rem,9vw,5.6rem)] leading-[0.9] text-cream">
-              <TitreAnime texte="La vraie pizza" delaiInitial={150} />
+              <TitreAnime texte="La vraie pizza" delaiInitial={80} pas={65} />
               <span className="block">
                 <span
                   className="inline-block font-serif italic lowercase tracking-tight text-gold-400"
                   style={{
                     animation: "bona-mot 1s cubic-bezier(0.16,1,0.3,1) both",
-                    animationDelay: "460ms",
+                    animationDelay: "300ms",
                   }}
                 >
                   artisanale
                 </span>
               </span>
-              <TitreAnime texte="à Lillebonne" delaiInitial={620} />
+              <TitreAnime texte="à Lillebonne" delaiInitial={420} pas={65} />
             </h1>
 
             <p
               className="mt-6 max-w-lg text-lg leading-relaxed text-cream/75"
-              style={{ animation: "bona-monter 0.9s ease-out 900ms both" }}
+              style={{ animation: "bona-monter 0.8s ease-out 560ms both" }}
             >
               {siteConfig.heroTaglines[0]} Pâte pétrie chaque jour, sauce mijotée
               maison, mozza Fior Di Latte et cuisson au four.
@@ -128,7 +128,7 @@ export function Hero() {
 
             <div
               className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
-              style={{ animation: "bona-monter 0.9s ease-out 1050ms both" }}
+              style={{ animation: "bona-monter 0.8s ease-out 660ms both" }}
             >
               <Button
                 href={siteConfig.phone.href}
@@ -146,7 +146,7 @@ export function Hero() {
 
             <dl
               className="mt-11 grid max-w-lg grid-cols-2 gap-6 border-t border-cream/10 pt-7 sm:grid-cols-3"
-              style={{ animation: "bona-monter 0.9s ease-out 1200ms both" }}
+              style={{ animation: "bona-monter 0.8s ease-out 760ms both" }}
             >
               <div>
                 <dt className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-cream/65">
@@ -186,7 +186,7 @@ export function Hero() {
           >
             <div
               className="relative aspect-square"
-              style={{ animation: "bona-zoom 1.1s cubic-bezier(0.16,1,0.3,1) 400ms both" }}
+              style={{ animation: "bona-zoom 1s cubic-bezier(0.16,1,0.3,1) 260ms both" }}
             >
               {/* Anneau pointillé qui tourne */}
               <div
@@ -204,7 +204,7 @@ export function Hero() {
                   <span
                     key={i}
                     aria-hidden="true"
-                    className="absolute left-1/2 top-2 h-16 w-6 -translate-x-1/2 rounded-full bg-cream/25 blur-md"
+                    className="anim-vapeur absolute left-1/2 top-2 h-16 w-6 -translate-x-1/2 rounded-full bg-cream/25 blur-md"
                     style={{
                       animation: "bona-vapeur 4.5s ease-out infinite",
                       animationDelay: `${i * 1.4}s`,
