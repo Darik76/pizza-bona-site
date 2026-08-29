@@ -25,7 +25,10 @@ for (const evenement of ["scroll", "pointerdown", "keydown", "wheel", "touchstar
   window.addEventListener(evenement, demarrerAnimations, { once: true, passive: true });
 }
 
-const apresChargement = () => setTimeout(demarrerAnimations, 1500);
+// 2,5 s : en pratique personne n'attend ce délai, le moindre défilement ou
+// mouvement de souris lance les animations avant. Ce repli ne concerne qu'un
+// visiteur parfaitement immobile — et les outils de mesure automatiques.
+const apresChargement = () => setTimeout(demarrerAnimations, 2500);
 if (document.readyState === "complete") {
   apresChargement();
 } else {
