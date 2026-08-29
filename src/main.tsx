@@ -10,17 +10,26 @@ createRoot(document.getElementById("root")!).render(
 );
 
 // Les animations décoratives en boucle (halos, pizza qui tourne, bandeaux
-// défilants) ne démarrent qu'une fois la page chargée : pendant le premier
-// rendu, un écran qui bouge en permanence est mesuré comme un affichage lent.
-// Le style correspondant est dans src/index.css.
+// défilants) ne démarrent qu'à la première interaction, ou 1,5 s après le
+// chargement complet si la personne ne bouge pas. Tant que l'écran change en
+// permanence, il est considéré comme « pas encore affiché » — c'est ce que
+// mesure le Speed Index. Le style correspondant est dans src/index.css.
 function demarrerAnimations() {
-  setTimeout(() => document.documentElement.setAttribute("data-anime", "oui"), 300);
+  document.documentElement.setAttribute("data-anime", "oui");
+  for (const evenement of ["scroll", "pointerdown", "keydown", "wheel", "touchstart"]) {
+    window.removeEventListener(evenement, demarrerAnimations);
+  }
 }
 
+for (const evenement of ["scroll", "pointerdown", "keydown", "wheel", "touchstart"]) {
+  window.addEventListener(evenement, demarrerAnimations, { once: true, passive: true });
+}
+
+const apresChargement = () => setTimeout(demarrerAnimations, 1500);
 if (document.readyState === "complete") {
-  demarrerAnimations();
+  apresChargement();
 } else {
-  window.addEventListener("load", demarrerAnimations, { once: true });
+  window.addEventListener("load", apresChargement, { once: true });
 }
 
 // Lien partagé du type « …/#carte » : au moment où le navigateur traite l'ancre,

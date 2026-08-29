@@ -9,6 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#170f0d" />
 
+    <!-- Le logo est le plus gros élément affiché au premier écran sur mobile,
+         donc celui que Google chronomètre (LCP). Comme il est inséré par React,
+         le navigateur ne le découvrait qu'après avoir exécuté le JavaScript :
+         ce préchargement le lance dès la lecture du HTML. -->
+    <link rel="preload" as="image" href="/images/logo.webp" fetchpriority="high" />
+
     <title>Pizza Bona — Pizzeria artisanale à Lillebonne</title>
     <meta
       name="description"

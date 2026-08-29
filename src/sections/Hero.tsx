@@ -218,7 +218,6 @@ export function Hero() {
                 alt="Pizza artisanale Pizza Bona sortie du four, roquette et jambon cru"
                 width={550}
                 height={440}
-                fetchPriority="high"
                 decoding="async"
                 className={cn(
                   "absolute inset-4 h-[calc(100%-2rem)] w-[calc(100%-2rem)] rounded-full object-cover shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)] ring-4 ring-cream/10",
